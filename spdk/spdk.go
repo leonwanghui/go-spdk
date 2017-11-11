@@ -1,4 +1,4 @@
-package gospdk
+package spdk
 
 import (
 	"fmt"
