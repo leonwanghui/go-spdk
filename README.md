@@ -1,2 +1,2 @@
 # go-spdk
-Golang SDK for managing spdk tool
+Golang SDK for managing spdk tool.
