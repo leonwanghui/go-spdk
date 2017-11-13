@@ -1,0 +1,91 @@
+// Copyright 2015, Google Inc.
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+syntax = "proto3";
+
+package proto;
+
+message ErrorResponse {
+	string message = 1;
+	int32 code = 2;
+}
+
+message BlockDevice {
+	int32 numBlocks = 1;
+	map<string, bool> supportedIOTypes = 2;
+	bool isOpenedForWrite = 3;
+	map<string, string> driverSpecific = 4;
+	int32 blockSize = 5;
+	string productName = 6;
+	string name = 7;
+}
+
+message ConstructNVMEbdevRequest {
+	string name = 1;
+	string trtype = 2;
+	string traddr = 3;
+	string adrfam = 4;
+	string trsvcid = 5;
+	string subnqn = 6;
+}
+
+message ConstructAIObdevRequest {
+	string name = 1;
+	string fileName = 2;
+	int32 blockSize = 3;
+}
+
+message NVMFSubsystem {
+	repeated string listenAddresses = 1;
+	int32 core = 2;
+	string nqn = 3;
+	repeated string hosts = 4;
+	string subtype = 5;
+}
+
+message ConstructNVMFSubsystemRequest {
+	string nqn = 1;
+	string listen = 2;
+	string hosts = 3;
+	string serialNumber = 4;
+	string namespaces = 5;
+}
+
+message ConstructTargetRequest {
+	string name = 1;
+	string aliasName = 2;
+	string lunNameIdPairs = 3;
+	string pgigMappings = 4;
+	int32 queueDepth = 5;
+	int32 chapDisabled = 6;
+	int32 chapEnabled = 7;
+	int32 chapRequired = 8;
+	int32 chapMutual = 9;
+	int32 chapAuthGroup = 10;
+}

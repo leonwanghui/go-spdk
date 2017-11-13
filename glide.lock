@@ -1,0 +1,8 @@
+hash: 9f93b534db3844fb2cc85e8c1d2441e2f5bfffe6cbcb323f5de506a6aa1ee460
+updated: 2017-11-13T09:01:35.541028283+08:00
+imports:
+- name: github.com/golang/protobuf
+  version: 130e6b02ab059e7b717a096f397c5b60111cae74
+  subpackages:
+  - proto
+testImports: []

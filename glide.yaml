@@ -1,0 +1,5 @@
+package: github.com/leonwanghui/go-spdk
+import:
+- package: github.com/golang/protobuf
+  subpackages:
+  - proto
