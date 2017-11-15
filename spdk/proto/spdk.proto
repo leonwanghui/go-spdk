@@ -70,11 +70,13 @@ message NVMFSubsystem {
 }
 
 message ConstructNVMFSubsystemRequest {
-	string nqn = 1;
-	string listen = 2;
-	string hosts = 3;
-	string serialNumber = 4;
-	string namespaces = 5;
+	int32 core = 1;
+	string nqn = 2;
+	string listen = 3;
+	string hosts = 4;
+	bool isAnyHostAllowed = 5;
+	string serialNumber = 6;
+	string namespaces = 7;
 }
 
 message ConstructTargetRequest {
